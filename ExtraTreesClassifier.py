@@ -1,4 +1,4 @@
-from sklearn import tree
+from sklearn import ensemble
 X = [
     [170, 65, 92, 78, 94],
     [175, 72, 98, 82, 98],
@@ -55,12 +55,12 @@ Y = [
     'female','female','female','female'
 ]
 
-clf = tree.DecisionTreeClassifier()
+clf = ensemble.ExtraTreesClassifier()
 clf = clf.fit(X, Y)
 prediction = clf.predict([[169, 63, 91, 73, 97]])
 print (prediction)
 
-# DecisionTreeClassifier reaches a conclusion by asking a series of questions about the features of the input data.
-# Each question splits the data into smaller subsets based on the feature values, ultimately leading to a final decision or classification.
-# This method is faster for prediction compared to RandomForestClassifier, but may be less accurate as it relies on a single decision tree.
-# We can also add parameters to control its behavior to control overfitting and underfitting of the model.
+# ExtraTreesClassifier, or Extremely Randomized Trees, is an ensemble learning method that builds multiple decision trees.
+# It is similar to RandomForestClassifier but introduces additional randomness by selecting random splits for each feature when constructing the trees.
+# This often leads to improved generalization and reduced overfitting compared to traditional decision trees.
+# While it may be slightly less accurate than RandomForestClassifier in some cases, it is generally faster to train and can handle large datasets efficiently.

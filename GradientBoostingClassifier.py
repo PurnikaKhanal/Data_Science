@@ -1,4 +1,4 @@
-from sklearn import tree
+from sklearn import ensemble
 X = [
     [170, 65, 92, 78, 94],
     [175, 72, 98, 82, 98],
@@ -55,12 +55,13 @@ Y = [
     'female','female','female','female'
 ]
 
-clf = tree.DecisionTreeClassifier()
+clf = ensemble.GradientBoostingClassifier()
 clf = clf.fit(X, Y)
 prediction = clf.predict([[169, 63, 91, 73, 97]])
 print (prediction)
 
-# DecisionTreeClassifier reaches a conclusion by asking a series of questions about the features of the input data.
-# Each question splits the data into smaller subsets based on the feature values, ultimately leading to a final decision or classification.
-# This method is faster for prediction compared to RandomForestClassifier, but may be less accurate as it relies on a single decision tree.
-# We can also add parameters to control its behavior to control overfitting and underfitting of the model.
+# GradientBoostingClassifier builds an ensemble of weak prediction models, typically decision trees, in a sequential manner.
+# Each new model attempts to correct the errors made by the previous models, leading to improved accuracy over time.
+# This method is generally more accurate than DecisionTreeClassifier, especially for complex datasets
+# But it can be slower to train and predict due to the sequential nature of the boosting process.
+# We can also tune various hyperparameters like learning rate, number of estimators, and tree depth to optimize performance.

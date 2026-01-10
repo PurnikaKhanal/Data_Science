@@ -1,4 +1,4 @@
-from sklearn import tree
+from sklearn import ensemble
 X = [
     [170, 65, 92, 78, 94],
     [175, 72, 98, 82, 98],
@@ -55,12 +55,12 @@ Y = [
     'female','female','female','female'
 ]
 
-clf = tree.DecisionTreeClassifier()
+clf = ensemble.RandomForestClassifier()
 clf = clf.fit(X, Y)
 prediction = clf.predict([[169, 63, 91, 73, 97]])
 print (prediction)
 
-# DecisionTreeClassifier reaches a conclusion by asking a series of questions about the features of the input data.
-# Each question splits the data into smaller subsets based on the feature values, ultimately leading to a final decision or classification.
-# This method is faster for prediction compared to RandomForestClassifier, but may be less accurate as it relies on a single decision tree.
-# We can also add parameters to control its behavior to control overfitting and underfitting of the model.
+# RandomForestClassifier makes predictions by aggregating the results from multiple decision trees.
+# Each tree in the forest provides a classification, and the final prediction is made based on the
+# majority vote from all the trees. This approach generally leads to higher accuracy and robustness
+# compared to a single decision tree, but it may be slower due to the need to evaluate multiple trees.
