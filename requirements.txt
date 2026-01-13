@@ -15,6 +15,9 @@ textblob>=0.15.3
 scipy>=1.7.0
 statsmodels>=0.13.0
 
+# Recommendation Systems
+lightfm>=1.16
+
 # Additional Utilities
 joblib>=1.1.0
 pillow>=8.3.0
